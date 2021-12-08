@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from '../utils';
 import CouriersAPI from '../api/couriersAPI'
-
 import CourierShift from '../components/CourierShift'
+import HeaderTitle from '../components/HeaderTitle'
 
 class Courier extends Component {
     constructor(props) {
@@ -35,13 +35,8 @@ class Courier extends Component {
     render() {
         return (
             <div>
-                <h1> Курьер </h1>
-                <p>{this.state.courier.first_name} {this.state.courier.last_name}</p>
-                <p>{this.state.courier.room_number}</p>
-                <p>{this.state.courier.vehicle}</p>
-                <p>{this.state.courier.telephone}</p>
+                <HeaderTitle title={this.state.courier.first_name + " " + this.state.courier.last_name}/>
 
-                <h4> Свободные смены </h4>
                 {this.state.shifts.map(
                     (shift) => <CourierShift shift={shift} courier={this.state.courier}/>
                 )}

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #FAF9FE;
 }
 
 code {
@@ -15,4 +16,8 @@ code {
 a {
   text-decoration: none;
   color: inherit
+}
+
+a:hover {
+  opacity: 0.4;
 }
