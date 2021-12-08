@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './CompactGood.css'
+import plusSvg from '../img/plus.svg'
 
 export default class CompactGood extends Component {
     constructor(props) {
@@ -9,18 +10,16 @@ export default class CompactGood extends Component {
 
     render() {
         return (
-            <div className="card good-card col-mb-12">
-                <div class="row g-0">
-                    <div class="col-md-4">
+            <div className="col-md-4 mt-5">
+                <div className="card good-card h-100">
+                    <div class="card-body text-center">
                         <img src={this.good.icon} class="img-fluid rounded-start" alt={this.good.name} height="120px"/>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{this.good.name}</h5>
-                            <p class="card-text">
-                                {this.good.description}
-                            </p>
-                            <p class="card-text"><small class="text-muted">{this.good.price}₽</small></p>
+                        <h5 class="card-title">{this.good.name}</h5>
+                        <div class="changing-cart d-flex justify-content-between">
+                            <p class="card-text"><small>{this.good.price}₽</small></p>
+                            <div>
+                                <img class="add-cart" src={plusSvg}/>
+                            </div>
                         </div>
                     </div>
                 </div>

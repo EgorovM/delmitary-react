@@ -3,6 +3,7 @@ import { withRouter } from '../utils';
 import GoodsAPI from '../api/goodsAPI';
 import ShopsAPI from '../api/shopsAPI';
 import Good from '../components/CompactGood'
+import HeaderTitle from '../components/HeaderTitle'
 
 
 class Goods extends Component {
@@ -44,17 +45,18 @@ class Goods extends Component {
     render() {
         return (
             <div>
-                <h2> {this.state.shop.name} </h2>
-
-                {
-                    this.state.goods.length > 0 
-                    ? this.state.goods.map((good) => <Good good={good} />)
-                    : <p style={{
-                            position: 'absolute', left: '50%', top: '50%',
-                            transform: 'translate(-50%, -50%)'
-                        }}>Загрузка...
-                      </p>
-                }
+                <HeaderTitle title={this.state.shop.name} />
+                <div class="row">
+                    {
+                        this.state.goods.length > 0 
+                        ? this.state.goods.map((good) => <Good good={good} />)
+                        : <p style={{
+                                position: 'absolute', left: '50%', top: '50%',
+                                transform: 'translate(-50%, -50%)'
+                            }}>Загрузка...
+                        </p>
+                    }
+                </div>
 
             </div>
         );
