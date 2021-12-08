@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CouriersAPI from '../api/couriersAPI'
 import CourierCompact from '../components/CompactCourier'
-
+import HeaderTitle from '../components/HeaderTitle'
 
 export default class Couriers extends Component {
     constructor() {
@@ -26,7 +26,7 @@ export default class Couriers extends Component {
     render() {
         return (
             <div>
-                <h1>Курьеры</h1>
+                <HeaderTitle title="Курьеры"/>
                 
                 {this.state.couriers.map((courier) => <CourierCompact courier={courier}/>)}
             </div>

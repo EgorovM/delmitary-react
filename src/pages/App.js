@@ -13,6 +13,8 @@ import BadPage from './BadPage'
 import Landing from './Landing'
 import Couriers from './Couriers'
 import Courier from './Courier'
+import logo from '../img/delmitary.svg'
+import './App.css';
 
 
 export default class App extends Component {
@@ -21,18 +23,15 @@ export default class App extends Component {
       <Router>
       <div>
         <header>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-              <div className="container-fluid">
-                  <Link to="/">Delmitary</Link>
+          <nav className="navbar navbar-expand-lg navbar-light">
+              <div className="inner_wrapper">
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span className="navbar-toggler-icon"></span>
                   </button>
                   <div className="collapse navbar-collapse" id="navbarNav">
+                      <Link to="/"><img src={logo} style={{height: "39px"}} /></Link>
                       <ul className="navbar-nav">
-                          <li className="nav-item">
-                              <Link className="nav-link active" aria-current="page" to="/">Главная</Link>
-                          </li>
                           <li className="nav-item">
                               <Link  className="nav-link" to="/shops"> Магазины</Link>
                           </li>
@@ -50,17 +49,21 @@ export default class App extends Component {
               </div>
           </nav>
       </header>
-
-        <Routes>
-          <Route index path="/" element={<Landing />} />
-          <Route path="/goods/:shopId" element={<Goods />}/>
-          <Route path="/shops" element={<Shops />}/>
-          <Route path="/auth" element={<Auth />}/>
-          <Route path="/account" element={<Account />}/>
-          <Route path="/couriers/:courierID" element={<Courier />}/>
-          <Route path="/couriers/" element={<Couriers />}/>
-          <Route path="*" element={<BadPage />} />
-        </Routes>
+      
+        <div class="wrapper">
+          <div class="inner_wrapper">
+            <Routes>
+              <Route index path="/" element={<Landing />} />
+              <Route path="/goods/:shopId" element={<Goods />}/>
+              <Route path="/shops" element={<Shops />}/>
+              <Route path="/auth" element={<Auth />}/>
+              <Route path="/account" element={<Account />}/>
+              <Route path="/couriers/:courierID" element={<Courier />}/>
+              <Route path="/couriers/" element={<Couriers />}/>
+              <Route path="*" element={<BadPage />} />
+            </Routes>
+          </div>
+      </div>
       </div>
     </Router>
     )

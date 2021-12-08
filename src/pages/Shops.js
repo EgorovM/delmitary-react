@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ShopsAPI from '../api/shopsAPI'
 import CompactShop from '../components/CompactShop'
+import HeaderTitle from '../components/HeaderTitle'
+
 
 export default class Shops extends Component {
     constructor(props) {
@@ -27,8 +29,7 @@ export default class Shops extends Component {
     render() {
         return (
             <div>
-                <h1> Магазины </h1>
-
+                <HeaderTitle title="Магазины"/>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {this.state.shops.map((shop) => 
                         <CompactShop key={shop.toString()} shop={shop}/>
