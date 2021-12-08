@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AuthAPI from '../api/authAPI'
 import { Navigate } from 'react-router'
-
+import './Auth.css';
 
 export default class Auth extends Component {
     constructor() {
@@ -59,8 +59,8 @@ export default class Auth extends Component {
         }
 
         return (
-            <div>
-                <h1> Аутентификация </h1>
+            <div className="authform">
+                <h3> Войти </h3>
 
                 <form onSubmit={this.login}>
                     <div className="mb-3">
@@ -76,7 +76,9 @@ export default class Auth extends Component {
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="our-button">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
         )

@@ -14,6 +14,7 @@ import Landing from './Landing'
 import Couriers from './Couriers'
 import Courier from './Courier'
 import logo from '../img/delmitary.svg'
+import cart from '../img/cart.png'
 import './App.css';
 
 
@@ -44,6 +45,7 @@ export default class App extends Component {
                           <li className="nav-item">
                               <Link  className="nav-link" to="/account">Личный кабинет</Link>
                           </li>
+                          <li> <img src={cart} style={{height: "30px"}} /></li>
                       </ul>
                   </div>
               </div>
