@@ -5,6 +5,7 @@ import Order from '../components/CompactOrder'
 
 import AuthAPI from '../api/authAPI';
 import OrderAPI from '../api/ordersAPI'
+import HeaderTitle from '../components/HeaderTitle'
 
 
 export default class Account extends Component {
@@ -46,12 +47,34 @@ export default class Account extends Component {
 
         return (
             <div>
-                <h2>Пользователь</h2>
-                <p>Имя: {this.state.user.username} </p>
-                <p>Почта: {this.state.user.email} </p>
+                <HeaderTitle title="Личный кабинет"/>
                 
-                <h3> Заказы </h3>
-                {this.state.orders.map((order) => <Order order={order}/>)}
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h2>Профиль</h2>
+                    </div>
+                    <div class="col-sm-9">
+                        <h2>Заказы</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card" >
+                        <div class="card-body" >
+                            <p>Имя: {this.state.user.username} </p>
+                            <p>Почта: {this.state.user.email} </p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9" > 
+                        <div class="card">
+                        <div class="card-body">
+                            {this.state.orders.map((order) => <Order order={order}/>)}
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
