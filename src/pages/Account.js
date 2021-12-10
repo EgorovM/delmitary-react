@@ -49,30 +49,26 @@ export default class Account extends Component {
             <div>
                 <HeaderTitle title="Личный кабинет"/>
                 
-                <div class="row">
-                    <div class="col-sm-3">
+                <div className="row">
+                    <div className="col-sm-3">
                         <h2>Профиль</h2>
                     </div>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                         <h2>Заказы</h2>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="card" >
-                        <div class="card-body" >
+                <div className="row">
+                    <div className="col-sm-3">
+                        <div className="card" >
+                        <div className="card-body" >
                             <p>Имя: {this.state.user.username} </p>
                             <p>Почта: {this.state.user.email} </p>
                         </div>
                         </div>
                     </div>
-                    <div class="col-sm-9" > 
-                        <div class="card">
-                        <div class="card-body">
-                            {this.state.orders.map((order) => <Order order={order}/>)}
-                        </div>
-                        </div>
+                    <div className="col-sm-9" > 
+                        {this.state.orders.map((order) => <Order order={order}/>)}
                     </div>
                 </div>
             </div>
