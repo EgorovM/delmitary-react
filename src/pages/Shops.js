@@ -29,7 +29,7 @@ export default class Shops extends Component {
     render() {
         return (
             <div>
-                <HeaderTitle title="Магазины"/>
+                <HeaderTitle title="Рестораны"/>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {this.state.shops.map((shop) => 
                         <CompactShop key={shop.toString()} shop={shop}/>

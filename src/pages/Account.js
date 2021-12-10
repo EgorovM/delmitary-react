@@ -60,7 +60,7 @@ export default class Account extends Component {
 
                 <div className="row">
                     <div className="col-sm-3">
-                        <div className="card" >
+                        <div className="card border-0" >
                         <div className="card-body" >
                             <p>Имя: {this.state.user.username} </p>
                             <p>Почта: {this.state.user.email} </p>

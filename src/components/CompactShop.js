@@ -14,8 +14,11 @@ export default class Shop extends Component {
                         <Link to={"/goods/" + this.props.shop.id}>{this.props.shop.name}</Link>
                     </h5>
                     <p className="card-text">{this.props.shop.address}</p>
-                    <div className="text-button">{this.props.shop.bike_time}-{this.props.shop.walk_time} мин</div>
-                    <div className="text-button">{this.props.shop.mean_price} ₽</div>
+                    <div className="d-md-block">
+                        <div className="text-button button">{this.props.shop.bike_time}-{this.props.shop.walk_time} мин</div>
+                        <div className="text-button button">{this.props.shop.mean_price} ₽</div>
+                    </div>
+                    
                 </div>
           </div>
         )
