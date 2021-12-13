@@ -15,7 +15,7 @@
     width: 278px;
     border-radius: 8px;
 }
-.btn {
+.authform .btn {
     width: 259px;
     height: 46px;
     background-color: #9378FF;
@@ -25,14 +25,14 @@
     margin-right: auto;
 
 }
-h3, .form-label, .form-text{
+.authform h3, .authform .form-label, .authform .form-text{
     margin-left: 61px;
 }
-.form-check{
+.authform .form-check{
     text-align: center;
     margin: 0 130px;
 }
 
-.our-button {
+.authform .our-button {
     text-align: center;
 }

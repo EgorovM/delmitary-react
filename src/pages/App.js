@@ -51,7 +51,7 @@ export default class App extends Component {
               </div>
           </nav>
       </header>
-      
+      <main>
         <div class="wrapper">
           <div class="inner_wrapper">
             <Routes>
@@ -65,7 +65,13 @@ export default class App extends Component {
               <Route path="*" element={<BadPage />} />
             </Routes>
           </div>
-      </div>
+        </div>
+      </main>
+      <footer class="footer mt-5 py-5">
+        <div class="inner_wrapper">
+        <Link to="/"><img src={logo} style={{height: "39px"}} /></Link>
+        </div>
+      </footer>
       </div>
     </Router>
     )
