@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AuthAPI from '../api/authAPI'
 import { Navigate } from 'react-router'
 import './Auth.css';
+import { Link } from 'react-router-dom'
 
 export default class Auth extends Component {
     constructor() {
@@ -60,25 +61,25 @@ export default class Auth extends Component {
 
         return (
             <div className="authform">
-                <h3> Войти </h3>
+                <h3 class="comfortaaTitle"> Войти </h3>
 
                 <form onSubmit={this.login}>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Login</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label">Логин</label>
                         <input onChange={(e) => this.setLogin(e.target.value)} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Пароль</label>
                         <input onChange={(e) => this.setPassword(e.target.value)} type="password" className="form-control" id="exampleInputPassword1"/>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                        <label className="form-check-label" htmlFor="exampleCheck1">Запомнить меня</label>
                     </div>
                     <div className="our-button" style={{padding: "0 61px"}}>
                         <button type="submit" className="btn btn-delmitary">Submit</button>
                     </div>
+                    <Link to={`/registration/`}><p>Регистрация</p></Link>
                 </form>
             </div>
         )
