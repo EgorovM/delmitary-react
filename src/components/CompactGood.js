@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import './CompactGood.css'
+
 import plusSvg from '../img/plus.svg'
 
 export default class CompactGood extends Component {
     constructor(props) {
-        super(props)
-        this.good = props.good
+        super(props);
+        this.good = props.good;
+
+        this.addGood.bind(this);
+    }
+
+    addGood = () => {
+        this.props.addGood(this.good);
     }
 
     render() {
@@ -16,9 +23,9 @@ export default class CompactGood extends Component {
                         <img src={this.good.icon} class="img-fluid rounded-start" alt={this.good.name} height="120px"/>
                         <h5 class="card-title">{this.good.name}</h5>
                         <div class="changing-cart d-flex justify-content-between">
-                            <p class="card-text"><small>{this.good.price}₽</small></p>
+                            <p class="card-text"><small>{this.good.price} ₽</small></p>
                             <div>
-                                <img class="add-cart" src={plusSvg}/>
+                                <img class="add-cart" src={plusSvg} onClick={this.addGood}/>
                             </div>
                         </div>
                     </div>

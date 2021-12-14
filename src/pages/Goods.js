@@ -14,6 +14,8 @@ class Goods extends Component {
         this.state = {goods: [], shop: {}}
         this.goodsApi = new GoodsAPI({shopId: this.shopId});
         this.shopsApi = new ShopsAPI();
+
+        this.addGood.bind(this);
     }
 
     componentDidMount() {
@@ -42,6 +44,10 @@ class Goods extends Component {
         })
     }
 
+    addGood = (good) => {
+        this.props.addGood(good);
+    }
+
     render() {
         return (
             <div>
@@ -49,7 +55,7 @@ class Goods extends Component {
                 <div class="row">
                     {
                         this.state.goods.length > 0 
-                        ? this.state.goods.map((good) => <Good good={good} />)
+                        ? this.state.goods.map((good) => <Good good={good} addGood={this.addGood} />)
                         : <p style={{
                                 position: 'absolute', left: '50%', top: '50%',
                                 transform: 'translate(-50%, -50%)'

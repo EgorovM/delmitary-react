@@ -76,8 +76,8 @@ export default class Auth extends Component {
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <div className="our-button">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="our-button" style={{padding: "0 61px"}}>
+                        <button type="submit" className="btn btn-delmitary">Submit</button>
                     </div>
                 </form>
             </div>

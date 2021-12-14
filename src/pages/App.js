@@ -13,12 +13,42 @@ import BadPage from './BadPage'
 import Landing from './Landing'
 import Couriers from './Couriers'
 import Courier from './Courier'
+import Cart from './Cart'
+
+import CartModel from '../models/Cart'
+
 import logo from '../img/delmitary.svg'
 import cart from '../img/cart.png'
 import './App.css';
 
 
 export default class App extends Component {
+  constructor() {
+    super();
+
+    if(!sessionStorage.hasOwnProperty('cart')) {
+      sessionStorage.setItem('cart', JSON.stringify(new CartModel().toJson()));
+    }
+
+    let cart = JSON.parse(sessionStorage.getItem('cart'));
+    this.state = {
+      cart: cart,
+    }
+
+    this.addGood.bind(this);
+  }
+
+  addGood = (good) => {
+    let cart = CartModel.fromJson(JSON.parse(sessionStorage.getItem('cart')));
+    cart.appendGood(good);
+
+    sessionStorage.setItem('cart', JSON.stringify(cart.toJson()));
+    
+    this.setState({
+        cart: cart
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -45,7 +75,11 @@ export default class App extends Component {
                           <li className="nav-item">
                               <Link  className="nav-link" to="/account">Личный кабинет</Link>
                           </li>
-                          <li> <img src={cart} style={{height: "30px"}} /></li>
+                          <li className="nav-item"> 
+                            <Link className="nav-link" to="/cart">
+                              <img src={cart} style={{height: "30px"}} /> {this.state.cart.goods.length}
+                            </Link>
+                          </li>
                       </ul>
                   </div>
               </div>
@@ -56,12 +90,13 @@ export default class App extends Component {
           <div class="inner_wrapper">
             <Routes>
               <Route index path="/" element={<Landing />} />
-              <Route path="/goods/:shopId" element={<Goods />}/>
+              <Route path="/goods/:shopId" element={<Goods addGood={this.addGood}/>}/>
               <Route path="/shops" element={<Shops />}/>
               <Route path="/auth" element={<Auth />}/>
               <Route path="/account" element={<Account />}/>
               <Route path="/couriers/:courierID" element={<Courier />}/>
               <Route path="/couriers/" element={<Couriers />}/>
+              <Route path="/cart/" element={<Cart cart={this.state.cart}/>}/>
               <Route path="*" element={<BadPage />} />
             </Routes>
           </div>

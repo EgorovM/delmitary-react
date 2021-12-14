@@ -26,3 +26,15 @@ footer {
     background-color: #9378FF;
     height: 265px;
 }
+
+
+.btn-delmitary {
+    width: 100%;
+    height: 46px;
+    background-color: #9378FF;
+    border-radius: 63px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}

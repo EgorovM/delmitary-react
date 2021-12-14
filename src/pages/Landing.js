@@ -74,12 +74,6 @@ export default class Landing extends Component {
                         </div>
                     </div>
                 </section>
-
-                <footer>
-                    <p>ООО "Delmitary"</p>
-                    <p>Контакты</p>
-                    <p>Обратная связь</p>
-                </footer>
             </div>
         )
     }
