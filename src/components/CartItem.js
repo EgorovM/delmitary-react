@@ -7,6 +7,20 @@ import crossSvg from '../img/Cross.svg'
 
 
 export default class CartItem extends Component {
+    constructor() {
+        super();
+        this.addGood.bind(this);
+        this.decreaseGood.bind(this);
+    }
+
+    addGood = () => {
+        this.props.addGood(this.props.good);
+    }
+
+    decreaseGood = () => {
+        this.props.decreaseGood(this.props.good);
+    }
+
     render() {
         return (
                <div className="cart-item mt-4">
@@ -20,9 +34,9 @@ export default class CartItem extends Component {
                                 <h5>{this.props.good.name}</h5>
                                 <p className="card-text"><small>{this.props.good.price * this.props.good.count}₽</small></p>
                                 <div className="d-flex">
-                                    <img className="add-cart" src={minusSvg}/>
+                                    <img className="add-cart" src={minusSvg} onClick={this.decreaseGood}/>
                                     <span>&nbsp;&nbsp;{this.props.good.count}&nbsp;&nbsp;</span>
-                                    <img className="add-cart" src={plusSvg}/>
+                                    <img className="add-cart" src={plusSvg} onClick={this.addGood}/>
                                 </div>
                             </div>
                         </div>

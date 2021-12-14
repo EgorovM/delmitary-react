@@ -38,6 +38,7 @@ export default class App extends Component {
     }
 
     this.addGood.bind(this);
+    this.decreaseGood.bind(this);
   }
 
   addGood = (good) => {
@@ -50,6 +51,18 @@ export default class App extends Component {
         cart: cart
     });
   }
+
+  decreaseGood = (good) => {
+    let cart = CartModel.fromJson(JSON.parse(sessionStorage.getItem('cart')));
+    cart.decreaseGood(good);
+
+    sessionStorage.setItem('cart', JSON.stringify(cart.toJson()));
+    
+    this.setState({
+        cart: cart
+    });
+  }
+
 
   render() {
     return (
@@ -77,7 +90,7 @@ export default class App extends Component {
                       </ul>
                   </div>
                   <div className="cart">
-                    <img src={cart} style={{height: "30px"}} /> {this.state.cart.goods.length}
+                  <Link to="/cart"><img src={cart} alt="cart" style={{height: "30px"}} /> {this.state.cart.goods.length}</Link>
                   </div>
               </div>
           </nav>
@@ -87,13 +100,13 @@ export default class App extends Component {
           <div class="inner_wrapper">
             <Routes>
               <Route index path="/" element={<Landing />} />
-              <Route path="/goods/:shopId" element={<Goods addGood={this.addGood}/>}/>
+              <Route path="/goods/:shopId" element={<Goods addGood={this.addGood} decreaseGood={this.decreaseGood} cart={this.state.cart}/>}/>
               <Route path="/shops" element={<Shops />}/>
               <Route path="/auth" element={<Auth />}/>
               <Route path="/account" element={<Account />}/>
               <Route path="/couriers/:courierID" element={<Courier />}/>
               <Route path="/couriers/" element={<Couriers />}/>
-              <Route path="/cart/" element={<Cart cart={this.state.cart}/>}/>
+              <Route path="/cart/" element={<Cart addGood={this.addGood} decreaseGood={this.decreaseGood} cart={this.state.cart}/>}/>
               <Route path="/registration/" element={<Registration />}/>
               <Route path="*" element={<BadPage />} />
             </Routes>

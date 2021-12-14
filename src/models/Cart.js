@@ -1,7 +1,7 @@
 class Cart {
     constructor() {
         this.goods = [];
-        this.totalPrice = this.totalPrice.bind(this);
+        this.totalPrice = 0;
         this.toJson = this.toJson.bind(this);
     }
 
@@ -10,7 +10,7 @@ class Cart {
             goods: this.goods.map(good => {
                 return good.toJson()
             }),
-            totalPrice: this.totalPrice(),
+            totalPrice: this.totalPrice,
         }
     }
 
@@ -19,10 +19,16 @@ class Cart {
         cart.goods = json.goods.map(jsonGood => {
             return CartGood.fromJson(jsonGood)
         });
+        let totalPrice = 0;
+        for(let i = 0; i < cart.goods.length; i++) {
+            totalPrice += cart.goods[i].price * cart.goods[i].count;
+        }
+        cart.totalPrice = totalPrice;
         return cart;
     }
 
     appendGood(good) {
+        this.totalPrice += good.price;
         for(var i = 0; i < this.goods.length; i++) {
             console.log(this.goods[i].id, good.id);
             if(this.goods[i].id === good.id) {
@@ -34,24 +40,17 @@ class Cart {
         this.goods.push(CartGood.fromJson(good));
     }
 
-    removeGood(good) {
+    decreaseGood(good) {
         for(var i = 0; i < this.goods.length; i++) {
             if(this.goods[i].id === good.id) {
                 this.goods[i].count -= 1;
                 if(this.goods[i].count === 0) {
-                    delete this.goods[i];
+                    this.goods.splice(i, 1);
                 }
+                this.totalPrice -= good.price;
                 break;
             }
         }
-    }
-
-    totalPrice() {
-        let totalPrice = 0;
-        for(var i = 0; i < this.goods.length; i++) {
-            totalPrice += this.goods[i].price * this.goods[i].count;
-        }
-        return totalPrice;
     }
 }
 

@@ -15,9 +15,19 @@ export default class Cart extends Component {
         this.state = {
             delivery_price: 50,
         }
-
         this.makeOrder = this.makeOrder.bind(this)
+        this.addGood.bind(this);
+        this.decreaseGood.bind(this);
     }
+
+    addGood = (good) => {
+        this.props.addGood(good);
+    }
+
+    decreaseGood = (good) => {
+        this.props.decreaseGood(good);
+    }
+
 
     async makeOrder() {
         const response = await this.api.makeOrder(this.props.cart, this.state.delivery_price);
@@ -50,7 +60,7 @@ export default class Cart extends Component {
                         <h2>Заказы</h2>
 
                         {this.props.cart.goods.length != 0 ?
-                        this.props.cart.goods.map((good) => <CartItem good={good}/>)
+                        this.props.cart.goods.map((good) => <CartItem addGood={this.addGood} decreaseGood={this.decreaseGood} good={good}/>)
                         : <Link to='/shops'>Выберите товар из списка</Link>}
                     </div>
                     <div className="col-md-4">
