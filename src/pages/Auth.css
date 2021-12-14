@@ -1,4 +1,4 @@
-.authform{
+.authform {
     width: 400px;
     height: 480px;
     background-color: white;
@@ -6,7 +6,7 @@
     /* text-align: center; */
     margin: 20px auto;
     vertical-align: middle;
-    padding-top: 30px;
+    padding-top: 55px;
     
 }
 .form-control {
@@ -25,14 +25,33 @@
     margin-right: auto;
 
 }
-.authform h3, .authform .form-label, .authform .form-text{
+.authform h3 {
+    margin-left: 61px;
+    margin-bottom: 30px;
+}
+
+.authform .form-label, .authform .form-text {
     margin-left: 61px;
 }
-.authform .form-check{
+
+
+.authform .form-check {
     text-align: center;
     margin: 0 130px;
 }
 
 .authform .our-button {
     text-align: center;
+}
+
+.authform p {
+    font-size: 18px;
+    text-align: center;
+    color: #9378FF;
+    margin-top: 33px;
+}
+
+.authform label {
+    font-size: 12px;
+    color: #8F9090;
 }

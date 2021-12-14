@@ -26,3 +26,16 @@ footer {
     background-color: #9378FF;
     height: 265px;
 }
+
+.cart {
+    text-align: right;
+    float: right; 
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+HeaderTitle {
+    font-family: "Comfortaa";
+}
